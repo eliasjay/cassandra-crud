@@ -1,0 +1,16 @@
+{
+  "name": "2nd-crud",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "setup": "node src/infra/setup.js"
+  },
+  "dependencies": {
+    "cassandra-driver": "^4.5.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "uuidv4": "^6.1.0"
+  }
+}
