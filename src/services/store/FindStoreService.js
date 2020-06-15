@@ -10,7 +10,7 @@ class FindStoreService {
   }
 
   async index(id) {
-    const query = `SELECT id, name FROM market.store WHERE id=${id} ALLOW FILTERING`;
+    const query = `SELECT * FROM market.store WHERE id=${id} ALLOW FILTERING`;
 
     await cassandra.execute(query, (result) => {
       return result;
