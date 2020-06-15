@@ -3,7 +3,7 @@ const cassandra = require('./cassandra');
 async function createKeyspace() {
   try {
     await cassandra.execute(
-      `create keyspace market with replication = {
+      `create keyspace IF NOT EXISTS market with replication = {
         'class': 'SimpleStrategy',
         'replication_factor': 1
       }`
@@ -18,9 +18,10 @@ async function createKeyspace() {
 async function createStoreTable() {
   try {
     await cassandra.execute(
-      `create table market.store(
-        id text primary key,
-        name text
+      `create table IF NOT EXISTS market.store(
+        id text,
+        name text,
+        PRIMARY KEY(id)
       );`
     );
 
