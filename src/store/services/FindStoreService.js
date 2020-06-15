@@ -1,4 +1,4 @@
-const cassandra = require('../../infra/cassandra');
+const cassandra = require('../../shared/infra/cassandra');
 
 class FindStoreService {
   async find() {

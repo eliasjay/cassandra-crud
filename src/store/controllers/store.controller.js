@@ -1,7 +1,7 @@
-const CreateStoreService = require('../services/store/CreateStoreService');
-const FindStoreService = require('../services/store/FindStoreService');
-const UpdateStoreService = require('../services/store/UpdateStoreService');
-const DeleteStoreService = require('../services/store/DeleteStoreService');
+const CreateStoreService = require('../services/CreateStoreService');
+const FindStoreService = require('../services/FindStoreService');
+const UpdateStoreService = require('../services/UpdateStoreService');
+const DeleteStoreService = require('../services/DeleteStoreService');
 
 const createStore = new CreateStoreService();
 const findStore = new FindStoreService();

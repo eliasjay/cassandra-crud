@@ -1,5 +1,5 @@
 const { uuid } = require('uuidv4');
-const cassandra = require('../../infra/cassandra');
+const cassandra = require('../../shared/infra/cassandra');
 
 class CreateStoreService {
   async create(name) {

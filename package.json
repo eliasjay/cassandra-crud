@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "setup": "node src/infra/setup.js"
+    "setup": "node src/shared/infra/setup.js"
   },
   "dependencies": {
     "cassandra-driver": "^4.5.2",
