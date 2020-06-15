@@ -16,15 +16,16 @@ class StoreController {
   }
   
   async index(request, response) {
-    return response.json({
-      message: 'one store found'
-    })
+    const { id } = request.params;
+    const store = await findStore.index(id);
+
+    return response.json({ store });
   }
   
   async show(request, response) {
-    return response.json({
-      message: 'all stores found'
-    })
+    const store = await findStore.find();
+    
+    return response.json({ store });
   }
   
   async update(request, response) {
