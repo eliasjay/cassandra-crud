@@ -30,9 +30,12 @@ class StoreController {
   }
   
   async update(request, response) {
-    return response.json({
-      message: 'store updated'
-    })
+    const { id } = request.params;
+    const { name } = request.body;
+
+    const store = await updateStore.update(id, name)
+    
+    return response.json({ store })
   }
   
   async destroy(request, response) {
