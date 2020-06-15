@@ -9,6 +9,6 @@ storeRouter.post('/', storeController.create);
 storeRouter.get('/:id', storeController.index);
 storeRouter.get('/', storeController.show);
 storeRouter.patch('/:id', storeController.update);
-storeRouter.delete('/', storeController.destroy);
+storeRouter.delete('/:id', storeController.destroy);
 
 module.exports = storeRouter;

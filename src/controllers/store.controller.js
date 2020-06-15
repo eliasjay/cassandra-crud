@@ -36,9 +36,11 @@ class StoreController {
   }
   
   async destroy(request, response) {
-    return response.json({
-      message: 'store deleted'
-    })
+    const { id } = request.params;
+
+    const store = await deleteStore.destroy(id);
+
+    return response.json({ store })
   }
 }
 
