@@ -9,10 +9,11 @@ const updateStore = new UpdateStoreService();
 const deleteStore = new DeleteStoreService();
 
 class StoreController {
-  async create(request, response) { 
-    return response.json({
-      message: 'store created'
-    })
+  async create(request, response) {
+    const { name } = request.body;
+    const store = await createStore.create(name);
+
+    return response.json({ store });
   }
   
   async index(request, response) {
