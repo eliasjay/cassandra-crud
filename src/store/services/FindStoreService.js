@@ -3,24 +3,18 @@ const cassandra = require('../../shared/infra/cassandra');
 class FindStoreService {
   async find() {
     const query = `SELECT * FROM market.store`;
-    let resQuery = '';
 
-    await cassandra.execute(query, (result) => {
-      resQuery = result;
-    });
+    const queryResponse = await cassandra.execute(query);
 
-    return resQuery.rows;
+    return queryResponse.rows;
   }
 
   async index(id) {
-    const query = `SELECT * FROM market.store WHERE id=${id} ALLOW FILTERING`;
-    let resQuery = '';
+    const query = `SELECT * FROM market.store WHERE id='${id}' ALLOW FILTERING`;
+    
+    const queryResponse = await cassandra.execute(query);
 
-    await cassandra.execute(query, (result) => {
-      resQuery = result;
-    });
-
-    return resQuery.rows;
+    return queryResponse.rows;
   }
 }
 

@@ -13,7 +13,10 @@ class StoreController {
     const { name } = request.body;
     const store = await createStore.create(name);
 
-    return response.json({ store });
+    return response.json({ 
+      message: 'Store created with success',
+      store 
+    });
   }
   
   async index(request, response) {
@@ -35,7 +38,10 @@ class StoreController {
 
     const store = await updateStore.update(id, name)
     
-    return response.json({ store })
+    return response.json({ 
+      message: 'Store updated with success',
+      store 
+    });
   }
   
   async destroy(request, response) {
@@ -43,7 +49,10 @@ class StoreController {
 
     const store = await deleteStore.destroy(id);
 
-    return response.json({ store })
+    return response.json({ 
+      message: 'Store deleted with success',
+      store 
+    });
   }
 }
 

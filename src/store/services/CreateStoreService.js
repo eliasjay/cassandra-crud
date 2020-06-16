@@ -3,19 +3,11 @@ const cassandra = require('../../shared/infra/cassandra');
 
 class CreateStoreService {
   async create(name) {
-    const store = {
-      id: uuid(),
-      name
-    }
+    const query = `INSERT INTO market.store ("id", "name") VALUES ('${uuid()}', '${name}')`;
 
-    const query = `INSERT INTO market.store (id, name) VALUES (${store.id}, ${store.name})`;
-    let resQuery = '';
+    const queryResponse = await cassandra.execute(query);
 
-    await cassandra.execute(query, (result) => {
-      resQuery = result;
-    });
-
-    return resQuery.rows;
+    return queryResponse;
   }
 }
 

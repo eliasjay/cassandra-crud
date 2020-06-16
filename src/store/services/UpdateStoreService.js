@@ -2,14 +2,11 @@ const cassandra = require('../../shared/infra/cassandra');
 
 class UpdateStoreService {
   async update(id, name) {
-    const query = `UPDATE market.store SET name=${name} WHERE id=${id} ALLOW FILTERING`;
-    let resQuery = '';
+    const query = `UPDATE market.store SET name='${name}' WHERE id='${id}'`;
+    
+    const queryResponse = await cassandra.execute(query);
 
-    await cassandra.execute(query, (result) => {
-      resQuery = result;
-    });
-
-    return resQuery.rows;
+    return queryResponse.rows;
   }
 }
 

@@ -2,14 +2,11 @@ const cassandra = require('../../shared/infra/cassandra');
 
 class DeleteStoreService {
   async destroy(id) {
-    const query = `DELETE FROM market.store WHERE id=${id} ALLOW FILTERING`;
-    let resQuery = '';
+    const query = `DELETE FROM market.store WHERE id='${id}'`;
+    
+    const queryResponse = await cassandra.execute(query);
 
-    await cassandra.execute(query, (result) => {
-      resQuery = result;
-    });
-
-    return resQuery.rows;
+    return queryResponse.rows;
   }
 }
 
